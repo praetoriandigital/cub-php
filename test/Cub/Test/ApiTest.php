@@ -40,6 +40,12 @@ class Cub_Test_ApiTest extends Cub_Test_TestCase
     public function testApiBadRequest()
     {
         $this->expectException(Cub_BadRequest::class);
+        $this->expectExceptionMessage(
+            "The following parameters are invalid: username, password\n".
+            "Params:\n".
+            "- password: This field is required.\n".
+            "- username: This field is required.\n"
+        );
         Cub_Api::post('user/login');
     }
 }
