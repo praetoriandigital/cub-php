@@ -48,7 +48,7 @@ class Cub_Test_ApiTest extends Cub_Test_TestCase
     public function testSuccessfulResponse()
     {
         $user = Cub_Api::post('user/login', self::credentials);
-        $details = self::details;
+        $details = $this->details;
         $this->assertEquals($details['original_username'], $user['original_username']);
         $this->assertEquals($details['first_name'], $user['first_name']);
         $this->assertEquals($details['last_name'], $user['last_name']);
