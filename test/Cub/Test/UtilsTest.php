@@ -1,5 +1,5 @@
 <?php
-class Cub_Test_UtilsTest extends PHPUnit_Framework_TestCase
+class Cub_Test_UtilsTest extends \PHPUnit\Framework\TestCase
 {
     public function testUrlEncode()
     {
