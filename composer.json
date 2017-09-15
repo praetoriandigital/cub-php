@@ -11,5 +11,18 @@
   },
   "require-dev": {
     "phpunit/phpunit": "6.3.0"
+  },
+  "autoload": {
+    "psr-0" : {
+        "Cub_" : "lib/"
+    }
+  },
+  "scripts": {
+    "tests": [
+      "vendor/bin/phpunit --verbose"
+    ],
+    "tests-travis": [
+      "vendor/bin/phpunit --verbose --configuration phpunit.xml"
+    ]
   }
 }
