@@ -5,6 +5,7 @@ class Cub_User extends Cub_Object
     {
         return 'user';
     }
+
     public function instanceUrl()
     {
         $class_url = self::classUrl(get_class());

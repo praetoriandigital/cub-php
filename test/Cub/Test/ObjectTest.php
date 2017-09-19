@@ -21,6 +21,7 @@ class Cub_Test_ObjectTest extends PHPUnit_Framework_TestCase
         );
         $this->assertEquals($user, $user_constructed);
     }
+
     public function testClassUrl()
     {
         $this->assertEquals(
@@ -28,6 +29,7 @@ class Cub_Test_ObjectTest extends PHPUnit_Framework_TestCase
             Cub_Object::classUrl('Cub_Member')
         );
     }
+
     public function testInstanceUrl()
     {
         $user = new Cub_User(array(

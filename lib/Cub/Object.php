@@ -3,6 +3,7 @@ class Cub_Object
 {
     private $keys;
     public $api_key;
+
     public function __construct($params=array(), $api_key=null)
     {
         if (!is_array($params)) {
@@ -18,10 +19,12 @@ class Cub_Object
             $this->__set($k, $v);
         }
     }
+
     public function __get($name)
     {
         return $this->keys[$name];
     }
+
     public function __set($name, $value)
     {
         if (is_array($value)) {
@@ -30,10 +33,12 @@ class Cub_Object
             return $this->keys[$name] = $value;
         }
     }
+
     public static function fromJson($json_str)
     {
         return self::fromArray(json_decode($json_str, true));
     }
+
     public static function fromArray($arr, $api_key=null)
     {
         $obj_name = null;
@@ -79,6 +84,7 @@ class Cub_Object
         }
         return $drill_down;
     }
+
     /**
      * Get api url for a class.
      *
@@ -93,6 +99,7 @@ class Cub_Object
     {
         return strtolower(ltrim(strrchr($class, '_'), '_')).'s';
     }
+
     /**
      * Get api url for a class instance.
      *
@@ -107,12 +114,14 @@ class Cub_Object
     {
         return self::classUrl(get_class($this)).'/'.$this->id;
     }
+
     public static function execGet($class, $id, $api_key)
     {
         return self::fromArray(
             Cub_Api::get(self::classUrl($class).'/'.$id, array(), $api_key)
         );
     }
+
     public function execReload()
     {
         if (!array_key_exists('id', $this->keys) || !$this->keys['id']) {
@@ -125,6 +134,7 @@ class Cub_Object
         );
         return $this;
     }
+
     public function execSave()
     {
         $this->__construct(
@@ -132,12 +142,14 @@ class Cub_Object
         );
         return $this;
     }
+
     public static function execCreate($class, $params, $api_key=null)
     {
         return self::fromArray(
             Cub_Api::post(self::classUrl($class), $params, $api_key)
         );
     }
+
     public function execRemove()
     {
         $this->__construct(

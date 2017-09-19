@@ -159,14 +159,17 @@ Params:';
                     $http_body, $json_body);
         }
     }
+
     public static function get($url, $params=array(), $api_key=null)
     {
         return Cub_Api::request('get', $url, $params, $api_key);
     }
+
     public static function post($url, $params=array(), $api_key=null)
     {
         return Cub_Api::request('post', $url, $params, $api_key);
     }
+
     public static function delete($url, $params=array(), $api_key=null)
     {
         return Cub_Api::request('delete', $url, $params, $api_key);
