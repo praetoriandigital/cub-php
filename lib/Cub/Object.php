@@ -156,4 +156,16 @@ class Cub_Object
     {
         return $this->execReload();
     }
+
+    public function delete()
+    {
+        return $this->execRemove();
+    }
+
+    public static function deleteById($id, $api_key = null)
+    {
+        $class = get_called_class();
+        $instance = new $class(array('id' => $id), $api_key);
+        return $instance->delete();
+    }
 }

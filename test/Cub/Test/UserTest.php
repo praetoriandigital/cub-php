@@ -29,5 +29,14 @@ class Cub_Test_UserTest extends Cub_Test_TestCase
         $this->assertEquals($user_by_token->date_joined, $user->date_joined);
         $this->assertEquals($user_by_token->registration_site, $user->registration_site);
     }
+
+    /**
+     * @expectedException Cub_MethodNotAllowed
+     * @expectedExceptionMessageRegExp /DELETE method is not allowed for \/v1\/users?\w+/
+     */
+    public function testCantDeleteById()
+    {
+        Cub_User::deleteById('usr_upfrcJvCTyXCVBj8');
+    }
 }
 
