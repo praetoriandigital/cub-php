@@ -181,7 +181,7 @@ class Cub_Object
         return $instance->delete();
     }
 
-    public static function list($params = array(), $api_key = null)
+    public static function getList($params = array(), $api_key = null)
     {
         return self::fromArray(
             Cub_Api::get(self::classUrl(get_called_class()), $params, $api_key)

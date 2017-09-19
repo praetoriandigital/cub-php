@@ -41,7 +41,7 @@ class Cub_Test_ObjectTest extends Cub_Test_TestCase
 
     public function testCanGetList()
     {
-        $orgs = Cub_Organization::list(array('q' => 'test'));
+        $orgs = Cub_Organization::getList(array('q' => 'test'));
         $this->assertTrue(is_array($orgs));
         $this->assertGreaterThan(5, sizeof($orgs));
         $this->assertTrue($orgs[2] instanceof Cub_Organization);
