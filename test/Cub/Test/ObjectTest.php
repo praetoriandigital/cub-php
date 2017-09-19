@@ -1,5 +1,5 @@
 <?php
-class Cub_Test_ObjectTest extends PHPUnit_Framework_TestCase
+class Cub_Test_ObjectTest extends Cub_Test_TestCase
 {
     public function testUserFromJson()
     {
@@ -37,5 +37,13 @@ class Cub_Test_ObjectTest extends PHPUnit_Framework_TestCase
             'email' => 'lold@myseriousbusiness666.lol',
         ));
         $this->assertEquals('users/usr_realseriousuid', $user->instanceUrl());
+    }
+
+    public function testCanGetList()
+    {
+        $orgs = Cub_Organization::list(array('q' => 'test'));
+        $this->assertTrue(is_array($orgs));
+        $this->assertGreaterThan(5, sizeof($orgs));
+        $this->assertTrue($orgs[2] instanceof Cub_Organization);
     }
 }
