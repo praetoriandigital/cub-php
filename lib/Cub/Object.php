@@ -122,7 +122,7 @@ class Cub_Object
         );
     }
 
-    public function execReload()
+    public function execReload($params = array())
     {
         if (!array_key_exists('id', $this->keys) || !$this->keys['id']) {
             throw new Cub_Exception(
@@ -130,7 +130,7 @@ class Cub_Object
             );
         }
         $this->__construct(
-            Cub_Api::get($this->instanceUrl(), array(), $this->api_key)
+            Cub_Api::get($this->instanceUrl(), $params, $this->api_key)
         );
         return $this;
     }
@@ -164,9 +164,9 @@ class Cub_Object
         return self::execGet($class, $id, $api_key);
     }
 
-    public function reload()
+    public function reload($params = array())
     {
-        return $this->execReload();
+        return $this->execReload($params);
     }
 
     public function delete()

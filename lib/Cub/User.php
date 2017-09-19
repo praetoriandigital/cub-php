@@ -26,10 +26,10 @@ class Cub_User extends Cub_Object
         return $instance->reload();
     }
 
-    public function execReload()
+    public function execReload($params = array())
     {
         $this->__construct(
-            Cub_Api::get($this->instanceUrl(), array(), $this->api_key)
+            Cub_Api::get($this->instanceUrl(), $params, $this->api_key)
         );
         return $this;
     }
