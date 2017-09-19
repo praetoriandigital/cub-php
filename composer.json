@@ -2,7 +2,7 @@
   "name": "cub/cub",
   "type": "library",
   "description": "A PHP Client for Cub",
-  "keywords": ["cup", "api"],
+  "keywords": ["cub", "api"],
   "license": "MIT",
   "homepage": "https://github.com/ivelum/cub-php",
   "require": {
