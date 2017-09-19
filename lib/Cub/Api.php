@@ -8,7 +8,13 @@ class Cub_Api
         }
         if (!$api_key) {
             throw new Cub_Unauthorized(
-                'You did not provide an API key.'
+                "You did not provide an API key.\n".
+                "There are 2 ways to do it:\n".
+                "1) set it globally via Cub_Config, like this:\n".
+                "Cub_Config::$api_key = \"<your-key>\";\n".
+                "2) pass it after array of arguments to methods which\n".
+                "communicate with the API, like this:\n".
+                '$user = Cub_User->create(array(...), "<your-key>")'
             );
         }
         /*** Prepare request ***/
