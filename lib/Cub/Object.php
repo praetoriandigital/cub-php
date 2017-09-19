@@ -145,4 +145,15 @@ class Cub_Object
         );
         return $this;
     }
+
+    public static function get($id, $api_key = null)
+    {
+        $class = get_called_class();
+        return self::execGet($class, $id, $api_key);
+    }
+
+    public function reload()
+    {
+        return $this->execReload();
+    }
 }
