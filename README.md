@@ -81,16 +81,15 @@ $user = Cub_Object::fromJson($HTTP_RAW_POST_DATA);
 // In this example we handle user creation/modification:
 if ($object instanceof Cub_User) {
 
-    // Reload user with membership and organization info
-    $user.reload(array('expand' => 'membership__organization'));
-
-    // Now $user contains the most recent information, including membership and organization info
-    $organization_name = $user->membership[0]->organization->name;
-    // Do something with it
-    
     if ($user->deleted) {
         // object was deleted, do something with it
-        
+    } else {
+        // Reload user with membership and organization info
+        $user.reload(array('expand' => 'membership__organization'));
+
+        // Now $user contains the most recent information, including membership and organization info
+        $organization_name = $user->membership[0]->organization->name;
+        // Do something with it
     }
 }
 ```
