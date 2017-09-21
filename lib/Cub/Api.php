@@ -6,10 +6,13 @@ class Cub_Api
         $json_body_with_datetimes = array();
         foreach ($json_body as $key => $value) {
             if (is_string($value) && substr($value, -1) === 'Z') {
-                try {
-                    $datetime = new DateTime($value, new DateTimeZone('UTC'));
+                $datetime = DateTime::createFromFormat(
+                    'Y-m-d\TH:i:sZ',
+                    $value, new DateTimeZone('UTC')
+                );
+                if ($datetime) {
                     $json_body_with_datetimes[$key] = $datetime;
-                } catch (Exception $e) {
+                } else {
                     $json_body_with_datetimes[$key] = $value;
                 }
             } elseif (is_array($value)) {
