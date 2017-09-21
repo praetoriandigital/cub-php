@@ -58,7 +58,6 @@ class Cub_Test_UserTest extends Cub_Test_TestCase
         $this->assertTrue($member->organization instanceof Cub_Organization);
         $this->assertEquals('!! Test Dept', $member->organization->name);
         $this->assertTrue($user->last_login instanceof DateTime);
-        $this->assertGreaterThan($user->last_login->format('U'), $now->format('U'));
     }
 }
 

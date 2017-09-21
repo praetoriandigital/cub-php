@@ -10,7 +10,7 @@ class Cub_Api
                     'Y-m-d\TH:i:sZ',
                     $value, new DateTimeZone('UTC')
                 );
-                if ($datetime) {
+                if ($datetime !== false) {
                     $json_body_with_datetimes[$key] = $datetime;
                 } else {
                     $json_body_with_datetimes[$key] = $value;
