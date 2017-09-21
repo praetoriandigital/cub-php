@@ -10,6 +10,11 @@ class Cub_Test_UserTest extends Cub_Test_TestCase
         $this->assertEquals($this->credentials['username'], $user->email);
         $this->assertEquals($this->details['first_name'], $user->first_name);
         $this->assertEquals($this->details['last_name'], $user->last_name);
+        $this->assertTrue($user->date_joined instanceof DateTime);
+        $this->assertEquals(
+            new DateTime('2012-11-06T04:16:22Z', new DateTimeZone('UTC')),
+            $user->date_joined
+        );
     }
 
     public function testLoginAndGetByToken()
@@ -41,6 +46,7 @@ class Cub_Test_UserTest extends Cub_Test_TestCase
 
     public function testReload()
     {
+        $now = new DateTime('now', new DateTimeZone('UTC'));
         $user = Cub_User::login(
             $this->credentials['username'],
             $this->credentials['password']
@@ -51,6 +57,8 @@ class Cub_Test_UserTest extends Cub_Test_TestCase
         $this->assertTrue($member instanceof Cub_Member);
         $this->assertTrue($member->organization instanceof Cub_Organization);
         $this->assertEquals('!! Test Dept', $member->organization->name);
+        $this->assertTrue($user->last_login instanceof DateTime);
+        $this->assertGreaterThan($user->last_login, $now);
     }
 }
 

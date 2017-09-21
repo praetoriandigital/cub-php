@@ -1,6 +1,25 @@
 <?php
 class Cub_Api
 {
+    public static function with_decoded_datetimes($json_body)
+    {
+        $json_body_with_datetimes = array();
+        foreach ($json_body as $key => $value) {
+            if (is_string($value) && substr($value, -1) === 'Z') {
+                try {
+                    $datetime = new DateTime($value, new DateTimeZone('UTC'));
+                    $json_body_with_datetimes[$key] = $datetime;
+                } catch (Exception $e) {
+                    $json_body_with_datetimes[$key] = $value;
+                }
+            } elseif (is_array($value)) {
+                $json_body_with_datetimes[$key] = self::with_decoded_datetimes($value);
+            } else {
+                $json_body_with_datetimes[$key] = $value;
+            }
+        }
+        return $json_body_with_datetimes;
+    }
     public static function request($method, $url, $params=array(), $api_key=null)
     {
         if (!$api_key) {
@@ -133,6 +152,7 @@ Params:';
 ';
             }
         }
+        $json_body = self::with_decoded_datetimes($json_body);
         switch ($http_code) {
             case 200:
                 return $json_body;
