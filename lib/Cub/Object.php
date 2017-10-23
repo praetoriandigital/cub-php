@@ -22,7 +22,7 @@ class Cub_Object
 
     public function __get($name)
     {
-        return $this->keys[$name];
+        return array_key_exists($name, $this->keys) ? $this->keys[$name] : null;
     }
 
     public function __set($name, $value)

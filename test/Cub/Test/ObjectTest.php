@@ -22,6 +22,16 @@ class Cub_Test_ObjectTest extends Cub_Test_TestCase
         $this->assertEquals($user, $user_constructed);
     }
 
+    public function testGettingUnsetKeyReturnsNull()
+    {
+        $user = new Cub_User(array(
+            'email' => 'superemail@sobaka.lol',
+            'username' => 'darth_vader_1996',
+            'password' => 'super_safe',
+        ));
+        $this->assertNull($user->deleted);
+    }
+
     public function testClassUrl()
     {
         $this->assertEquals(
