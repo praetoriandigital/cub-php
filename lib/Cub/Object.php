@@ -43,34 +43,34 @@ class Cub_Object
     {
         $obj_name = null;
         if ($arr && array_key_exists('object', $arr)) {
-            $obj_name = ucfirst(strtolower($arr['object']));
+            $obj_name = strtolower($arr['object']);
         }
         $child_classes = array(
-                'User',
-                'Organization',
-                'Member',
-                'Position',
-                'MemberPosition',
-                'Invitation',
-                'InvitationBatch',
-                'Group',
-                'GroupMember',
-                'ServiceSubscription',
-                'Plan',
-                'Customer',
-                'Site',
-                'MailingList',
-                'Subscription',
-                'Country',
-                'State',
-                'Product',
-                'SKU',
-                'Order',
-                'OrderItem',
-                'Charge',
+            'user' => 'User',
+            'organization' => 'Organization',
+            'member' => 'Member',
+            'position' => 'Position',
+            'memberposition' => 'MemberPosition',
+            'invitation' => 'Invitation',
+            'invitationbatch' => 'InvitationBatch',
+            'group' => 'Group',
+            'groupmember' => 'GroupMember',
+            'servicesubscription' => 'ServiceSubscription',
+            'plan' => 'Plan',
+            'customer' => 'Customer',
+            'site' => 'Site',
+            'mailinglist' => 'MailingList',
+            'subscription' => 'Subscription',
+            'country' => 'Country',
+            'state' => 'State',
+            'product' => 'Product',
+            'sku' => 'SKU',
+            'order' => 'Order',
+            'orderitem' => 'OrderItem',
+            'charge' => 'Charge',
         );
-        if ($obj_name && in_array($obj_name, $child_classes)) {
-            $class = 'Cub_'.$obj_name;
+        if ($obj_name && in_array($obj_name, array_keys($child_classes))) {
+            $class = 'Cub_'.$child_classes[$obj_name];
             unset($arr['object']);
             return new $class($arr, $api_key);
         }
