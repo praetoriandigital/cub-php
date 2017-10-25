@@ -115,10 +115,10 @@ class Cub_Object
         return static::classUrl(get_class($this)).'/'.$this->id;
     }
 
-    public static function execGet($class, $id, $api_key)
+    public static function execGet($class, $id, $params = array(), $api_key=null)
     {
         return static::fromArray(
-            Cub_Api::get(static::classUrl($class).'/'.$id, array(), $api_key)
+            Cub_Api::get(static::classUrl($class).'/'.$id, $params, $api_key)
         );
     }
 
