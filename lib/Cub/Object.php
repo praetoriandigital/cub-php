@@ -28,7 +28,7 @@ class Cub_Object
     public function __set($name, $value)
     {
         if (is_array($value)) {
-            return $this->keys[$name] = self::fromArray($value, $this->api_key);
+            return $this->keys[$name] = static::fromArray($value, $this->api_key);
         } else {
             return $this->keys[$name] = $value;
         }
@@ -36,7 +36,7 @@ class Cub_Object
 
     public static function fromJson($json_str)
     {
-        return self::fromArray(json_decode($json_str, true));
+        return static::fromArray(json_decode($json_str, true));
     }
 
     public static function fromArray($arr, $api_key=null)
@@ -77,7 +77,7 @@ class Cub_Object
         $drill_down = array();
         foreach ($arr as $k => $v) {
             if (is_array($v)) {
-                $drill_down[$k] = self::fromArray($v);
+                $drill_down[$k] = static::fromArray($v);
             } else {
                 $drill_down[$k] = $v;
             }
@@ -112,13 +112,13 @@ class Cub_Object
      */
     public function instanceUrl()
     {
-        return self::classUrl(get_class($this)).'/'.$this->id;
+        return static::classUrl(get_class($this)).'/'.$this->id;
     }
 
     public static function execGet($class, $id, $api_key)
     {
-        return self::fromArray(
-            Cub_Api::get(self::classUrl($class).'/'.$id, array(), $api_key)
+        return static::fromArray(
+            Cub_Api::get(static::classUrl($class).'/'.$id, array(), $api_key)
         );
     }
 
@@ -145,8 +145,8 @@ class Cub_Object
 
     public static function execCreate($class, $params, $api_key=null)
     {
-        return self::fromArray(
-            Cub_Api::post(self::classUrl($class), $params, $api_key)
+        return static::fromArray(
+            Cub_Api::post(static::classUrl($class), $params, $api_key)
         );
     }
 
@@ -161,7 +161,7 @@ class Cub_Object
     public static function get($id, $api_key = null)
     {
         $class = get_called_class();
-        return self::execGet($class, $id, $api_key);
+        return static::execGet($class, $id, $api_key);
     }
 
     public function reload($params = array())
@@ -183,8 +183,8 @@ class Cub_Object
 
     public static function getList($params = array(), $api_key = null)
     {
-        return self::fromArray(
-            Cub_Api::get(self::classUrl(get_called_class()), $params, $api_key)
+        return static::fromArray(
+            Cub_Api::get(static::classUrl(get_called_class()), $params, $api_key)
         );
     }
 }
