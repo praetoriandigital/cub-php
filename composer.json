@@ -4,7 +4,7 @@
   "description": "A PHP Client for Cub",
   "keywords": ["cub", "api"],
   "license": "MIT",
-  "homepage": "https://github.com/ivelum/cub-php",
+  "homepage": "https://github.com/praetoriandigital/cub-php",
   "require": {
     "php": ">=5.3",
     "ext-curl": "*"

@@ -42,7 +42,7 @@ class Cub_Api
         /*** Prepare request ***/
         $curl_ver = curl_version();
         $client_info = array(
-            'publisher' => 'ivelum',
+            'publisher' => 'praetoriandigital',
             'platform' => php_uname(),
             'language' => 'PHP '.phpversion(),
             'httplib' => 'curl '.$curl_ver['version'].
@@ -109,11 +109,11 @@ your browser. If that is true, in development environment you can turn
 SSL verification off by setting Cub_Config::ssl_verify = false. Note that
 it should NOT be used in production, please always have ssl_verify = true
 when dealing with real money.
-If problem persists, please contact us at support@ivelum.com.';
+If problem persists, please contact us at support@praetoriandigital.com.';
                     break;
                 default:
                     $msg = 'Unexpected network error. If problem persists, '.
-                        'please contact us at support@ivelum.com';
+                        'please contact us at support@praetoriandigital.com';
             }
             $msg .= "\n\n(Network error [errno $err_code]: $err_msg)";
             throw new Cub_ConnectionError($msg);
@@ -130,13 +130,13 @@ If problem persists, please contact us at support@ivelum.com.';
             } else {
                 throw new Cub_ApiError(
                     'Invalid response from the API (not a valid JSON). '.
-                    'If problem persists, please contact us at support@ivelum.com',
+                    'If problem persists, please contact us at support@praetoriandigital.com',
                     $http_code, $http_body, $json_body
                 );
             }
         }
         $err_msg = $http_code == 200 ? 'OK' : 'Unknown error. If problem '.
-            'persists, please contact us at support@ivelum.com';
+            'persists, please contact us at support@praetoriandigital.com';
         if (array_key_exists('error', $json_body)) {
             if (array_key_exists('description', $json_body['error'])) {
                 $err_msg = $json_body['error']['description'];

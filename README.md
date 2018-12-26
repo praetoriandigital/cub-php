@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ivelum/cub-php.svg?branch=master)](https://travis-ci.org/ivelum/cub-php)
+[![Build Status](https://travis-ci.org/praetoriandigital/cub-php.svg?branch=master)](https://travis-ci.org/praetoriandigital/cub-php)
 
 Cub Client for PHP
 =====================
@@ -40,7 +40,7 @@ Install the source code:
 
 ```bash
 
-$ git clone git://github.com/ivelum/cub-php.git
+$ git clone git://github.com/praetoriandigital/cub-php.git
 ```
 And include it using the autoloader:
 
