@@ -1,5 +1,5 @@
 <?php
 class Cub_Client
 {
-    const VERSION = '0.1.7';
+    const VERSION = '0.1.8';
 }
