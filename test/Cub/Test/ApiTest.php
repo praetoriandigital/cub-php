@@ -27,7 +27,7 @@ class Cub_Test_ApiTest extends Cub_Test_TestCase
     public function testWrongResponse()
     {
         $this->setExpectedException('Cub_ApiError');
-        Cub_Config::$api_url = 'https://cub.policeone.com/';
+        Cub_Config::$api_url = 'https://id.lexipol.com/';
         Cub_Api::get('');
     }
 
