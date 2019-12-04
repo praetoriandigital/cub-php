@@ -7,11 +7,11 @@ php:
 jobs:
   include:
   - php: '5.3'
-    dist: precise
+    dist: trusty
   - php: '5.4'
-    dist: precise
+    dist: trusty
   - php: '5.5'
-    dist: precise
+    dist: trusty
 before_install:
 - composer self-update
 install: travis_retry composer install --no-interaction --prefer-dist
