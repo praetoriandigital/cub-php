@@ -1,23 +1,17 @@
 dist: precise
-
 language: php
-
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
-
+- 5.3
+- 5.4
+- 5.5
+- 5.6
+- 7.0
+- 7.1
 before_install:
-  - composer self-update
-
+- composer self-update
 install: travis_retry composer install --no-interaction --prefer-dist
-
 script:
-  - composer tests-travis
-
+- composer tests-travis
 notifications:
   slack:
     rooms:
