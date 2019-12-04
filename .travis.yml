@@ -1,12 +1,17 @@
 dist: xenial
 language: php
 php:
-- 5.3
-- 5.4
-- 5.5
 - 5.6
 - 7.0
 - 7.1
+jobs:
+  include:
+  - python: '5.3'
+    dist: precise
+  - python: '5.4'
+    dist: precise
+  - python: '5.5'
+    dist: precise
 before_install:
 - composer self-update
 install: travis_retry composer install --no-interaction --prefer-dist
