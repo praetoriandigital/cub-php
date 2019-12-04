@@ -16,7 +16,6 @@ If you're using `Composer <http://getcomposer.org>`_ to manage dependencies,
 you can add Cub Client for PHP with it:
 
 ```json
-
 {
     "require": {
         "cub/cub": ">=0.1.0"
@@ -26,7 +25,6 @@ you can add Cub Client for PHP with it:
 or to get the latest version off the master branch:
 
 ```json
-
 {
     "require": {
         "cub/cub": "dev-master"
@@ -39,13 +37,11 @@ or to get the latest version off the master branch:
 Install the source code:
 
 ```bash
-
 $ git clone git://github.com/praetoriandigital/cub-php.git
 ```
 And include it using the autoloader:
 
 ```php
-
 require_once '/your/libraries/path/Cub/Autoloader.php';
 Cub_Autoloader::register();
 ```
@@ -53,12 +49,11 @@ Cub_Autoloader::register();
 Or, if you're using Composer:
 
 ```php
-
 require_once 'vendor/autoload.php';
 ```
 
 Usage
-------------
+-----
 
 ### Sign user in
 
@@ -73,6 +68,7 @@ $last_name = $user->last_name;
 ```
 
 ### Handle webhook from Cub
+
 ```php
 Cub_Config::$api_key = '<your-secret-key>';
 
