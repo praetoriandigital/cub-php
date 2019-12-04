@@ -6,11 +6,11 @@ php:
 - 7.1
 jobs:
   include:
-  - python: '5.3'
+  - php: '5.3'
     dist: precise
-  - python: '5.4'
+  - php: '5.4'
     dist: precise
-  - python: '5.5'
+  - php: '5.5'
     dist: precise
 before_install:
 - composer self-update
